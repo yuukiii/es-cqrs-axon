@@ -13,8 +13,6 @@
 		<module>discovery-service</module>
 		<module>gateway-service</module>
 		<module>query-service</module>
-		<module>crqs-query-service</module>
-		<module>query-service</module>
 	</modules>
     <packaging>pom</packaging>
 
