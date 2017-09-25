@@ -1,7 +1,7 @@
-package app.repo.product;
+package app.product.repository;
 
-import app.entity.product.ProductEntity;
 import app.repo.ReadOnlyRepository;
+import app.product.entity.ProductEntity;
 
 public interface ProductReadOnlyRepository extends ReadOnlyRepository<ProductEntity, String> {
 }

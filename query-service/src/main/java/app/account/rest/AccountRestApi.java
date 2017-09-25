@@ -1,6 +1,6 @@
-package app.rest.api.account;
+package app.account.rest;
 
-import app.entity.account.AccountEntity;
+import app.account.entity.AccountEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
