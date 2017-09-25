@@ -1,4 +1,4 @@
-package app.config.database;
+package app.config.axon;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

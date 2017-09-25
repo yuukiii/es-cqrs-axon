@@ -1,6 +1,5 @@
 package app.config.axon;
 
-import app.config.database.EventSourcingCollectionProperties;
 import com.mongodb.MongoClient;
 import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
 import org.axonframework.mongo.eventsourcing.eventstore.DefaultMongoTemplate;

@@ -1,5 +1,6 @@
 spring:
   application:
     name: query-service
+    index: 1
 server:
   port: ${PORT: 9010}
