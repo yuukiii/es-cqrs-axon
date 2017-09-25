@@ -1,15 +1,15 @@
 spring:
-  rabbitmq:
-    host: ${RABBITMQ_SERVER_HOST:localhost}
-    port: ${RABBITMQ_PORT:5672}
-    virtual-host: /
-    username: test
-    password: password
-
   data:
     mongodb:
       uri: ${MONGODB_URI:mongodb://localhost:27017/msa_test}
       database: ${MONGODB_DATABASE:msa_test}
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /
+    username: test
+    password: password
 
 axon:
   amqp:
@@ -25,7 +25,6 @@ external:
     bind:
       route-key: "*"
     queue: product.default.queue
-
   event-sourcing:
         events-collection-name: service-events
         snapshot-collection-name: service-events-snapshots
@@ -33,6 +32,6 @@ external:
 logging:
     level:
         root: INFO
-        org.springframework: DEBUG
+        org.springframework: INFO
         org.axonframework: INFO
         app: INFO

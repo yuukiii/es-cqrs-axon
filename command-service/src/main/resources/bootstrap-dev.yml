@@ -31,7 +31,7 @@ external:
 
 logging:
     level:
-        root: INFO
-        org.springframework: DEBUG
-        org.axonframework: INFO
-        app: INFO
+        root: WARN
+        org.springframework: WARN
+        org.axonframework: WARN
+        app: WARN
