@@ -72,7 +72,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <configuration>
+                    <appName>cqrs-test-${project.artifactId}</appName>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -jar target/${project.artifactId}-${project.version}.jar --spring.profiles.active=prod</web>
+                    </processTypes>
+                </configuration>
+
+            </plugin>
 		</plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.heroku.sdk</groupId>
+                    <artifactId>heroku-maven-plugin</artifactId>
+                    <version>1.2.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 	</build>
 
 

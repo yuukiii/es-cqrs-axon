@@ -1,0 +1,17 @@
+# eureka standalone
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: true
+logging:
+    level:
+        root: WARN
+        org.springframework: WARN
+        org.axonframework: WARN
+        app: WARN
