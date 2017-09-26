@@ -22,4 +22,5 @@ public interface ReadOnlyRepository<T, ID extends Serializable> extends MongoRep
     default T findById(ID id) {
         return findOne(id);
     }
+
 }

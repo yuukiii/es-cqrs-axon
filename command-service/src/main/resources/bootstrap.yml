@@ -2,7 +2,7 @@ spring:
   application:
     name: command-service
   profiles:
-    active: dev,mongo
+    active: prod,mongo,heroku
 
 server:
   port: ${PORT:9000}

@@ -1,7 +1,7 @@
 package app.product.handler;
 
-import app.product.entity.ProductEntity;
 import app.events.product.ProductAddedEvent;
+import app.product.entity.ProductEntity;
 import app.product.repository.ProductWriteOnlyRepository;
 import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;

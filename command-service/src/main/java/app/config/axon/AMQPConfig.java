@@ -15,7 +15,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.support.ResourceTransactionManager;
 
 @Configuration
-@Profile({"prod", "cloud"})
+//@Profile({"prod", "cloud"})
+@Profile({"local"})
 public class AMQPConfig {
     @Value("${external.amqp.queue}")
     private String queueName;
