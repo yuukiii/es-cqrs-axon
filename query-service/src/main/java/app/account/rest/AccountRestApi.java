@@ -1,6 +1,6 @@
-package app.rest.api.account;
+package app.account.rest;
 
-import app.entity.account.AccountEntity;
+import app.account.entity.AccountEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +13,8 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping(value = "/accounts")
 public interface AccountRestApi {
     @GetMapping
-    CompletableFuture<ResponseEntity<Page<AccountEntity>>> findAll(Pageable pageable);
+    CompletableFuture<Page<AccountEntity>> findAll(Pageable pageable);
 
     @GetMapping(path = "{id}")
-    CompletableFuture<ResponseEntity<AccountEntity>> findById(@PathVariable("id") String id);
+    CompletableFuture<AccountEntity> findById(@PathVariable("id") String id);
 }

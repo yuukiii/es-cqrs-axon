@@ -1,8 +1,8 @@
-package app.handler.product;
+package app.product.handler;
 
-import app.entity.product.ProductEntity;
+import app.product.entity.ProductEntity;
 import app.events.product.ProductAddedEvent;
-import app.repo.product.ProductWriteOnlyRepository;
+import app.product.repository.ProductWriteOnlyRepository;
 import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;
 import org.slf4j.Logger;

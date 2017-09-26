@@ -1,6 +1,6 @@
-package app.repo.account;
+package app.account.repository;
 
-import app.entity.account.AccountEntity;
+import app.account.entity.AccountEntity;
 import app.repo.ReadOnlyRepository;
 
 public interface AccountReadOnlyRepository extends ReadOnlyRepository<AccountEntity, String> {
