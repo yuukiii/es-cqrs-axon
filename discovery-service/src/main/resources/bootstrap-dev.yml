@@ -1,15 +1,13 @@
+#eureka standalone mode
 eureka:
   instance:
-    prefer-ip-address: true
-  server:
-    wait-time-in-ms-when-sync-empty: 0
-#    renewal-threshold-update-interval-ms: 10000
-#    renewal-percent-threshold: 0.85
+    hostname: localhost
+#    leaseRenewalIntervalInSeconds: 1 # better stick with the default in production.
   client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  # Notice that the serviceUrl is pointing the same host as the local instance
     register-with-eureka: false
     fetch-registry: false
-    service-url:
-      default-zone: http://127.0.0.1:${PORT:8761}/eureka
 
 logging:
     level:

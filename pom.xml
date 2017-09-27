@@ -7,8 +7,8 @@
 	<artifactId>es-cqrs-axon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
     <modules>
+        <module>common</module>
         <module>command-service</module>
-		<module>common</module>
 		<module>config-service</module>
 		<module>discovery-service</module>
 		<module>gateway-service</module>
@@ -91,6 +91,11 @@
                     <groupId>com.heroku.sdk</groupId>
                     <artifactId>heroku-maven-plugin</artifactId>
                     <version>1.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>1.0.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>

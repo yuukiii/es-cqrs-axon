@@ -1,6 +1,5 @@
 package app.config;
 
-import app.zuulfilter.AbstractZuulTypeOrderedFilter;
 import app.zuulfilter.ApiKeyValidationPreFilter;
 import app.zuulfilter.SimpleLoggingFilter;
 import com.netflix.zuul.ZuulFilter;

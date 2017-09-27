@@ -1,20 +1,19 @@
 package app;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import java.util.Collections;
+import java.util.List;
 
 @EnableAutoConfiguration
 @EnableZuulProxy // Act as reverse proxy, forwarding requests to other services based on routes.
@@ -25,39 +24,27 @@ public class GatewayServiceApplication {
     }
 }
 
+@RestController(value = "/service-instances")
+class ServiceInstanceResource {
+    @Value("${spring.application.name}")
+    private String appName;
 
+    private final DiscoveryClient discoveryClient;
 
-@Configuration
-class KeepAwakeCommandRunner implements CommandLineRunner {
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @Value("${extra.keep-awake}")
-    private boolean isKeepAwake;
-
-    @Value("${extra.keep-awake-interval-seconds}")
-    private int keepAwakeIntervalSeconds;
-
-    @Value("${extra.domain-name}")
-    private String domainName = "http://localhost:8080";
-
-    @Override
-    public void run(String... strings) throws Exception {
-        while(isKeepAwake) {
-            restTemplate.execute(
-                    domainName + "/info",
-                    HttpMethod.GET,
-                    request -> {},
-                     response ->response.getStatusText(),
-                    new HashMap<>()
-                    );
-            TimeUnit.SECONDS.sleep(keepAwakeIntervalSeconds);
-        }
+    @Inject
+    public ServiceInstanceResource(DiscoveryClient discoveryClient) {
+        this.discoveryClient = discoveryClient;
     }
 
-    @Bean
-    RestTemplate restTemplate() {
-        return new RestTemplate();
+    @HystrixCommand(fallbackMethod = "defaultServiceInstances")
+    @GetMapping
+    public List<ServiceInstance> serviceUrl() {
+        List<ServiceInstance> serviceInstances = discoveryClient.getInstances(appName);
+        return serviceInstances;
     }
+
+    public List<ServiceInstance> defaultServiceInstances() {
+        return Collections.emptyList();
+    }
+
 }
-
