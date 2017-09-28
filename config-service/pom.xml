@@ -32,7 +32,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
                     <skipDockerBuild>false</skipDockerBuild>
-                    <imageName>ryukato/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
@@ -42,7 +42,6 @@
                         </resource>
                     </resources>
                 </configuration>
-
             </plugin>
         </plugins>
     </build>

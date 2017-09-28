@@ -21,6 +21,3 @@ zuul:
     account-query:
       path: /account-query/**
       serviceId: query-service
-
-
-

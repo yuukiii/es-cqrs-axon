@@ -21,7 +21,7 @@ import org.springframework.data.repository.query.QueryLookupStrategy;
         },
         queryLookupStrategy = QueryLookupStrategy.Key.CREATE_IF_NOT_FOUND
 )
-@Profile({"mongo", "default"})
+//@Profile({"mongo", "default"})
 public class MongoDatabaseConfig {
     @Bean
     MongoRepositoryFactory mongoRepositoryFactory(MongoTemplate mongoTemplate) {

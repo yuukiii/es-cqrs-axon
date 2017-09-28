@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.support.ResourceTransactionManager;
 
 @Configuration
-@Profile({"prod", "cloud"})
 public class AMQPConfig {
     @Value("${spring.application.index}")
     private Integer index;

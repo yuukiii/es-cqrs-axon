@@ -33,7 +33,7 @@ class MessageRestController {
     }
 }
 
-@Profile({"prod", "cloud"})
+//@Profile({"prod", "cloud"})
 @RestController
 class ServiceInstanceRestController {
 
