@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 cd config-service
 ./mvnw clean package docker:build -Dmaven.test.skip=true
 
@@ -12,3 +13,5 @@ cd ../command-service
 
 cd ../query-service
 ./mvnw clean package docker:build -Dmaven.test.skip=true
+
+docker rmi $(docker images -f "dangling=true" -q)
