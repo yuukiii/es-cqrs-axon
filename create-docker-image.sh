@@ -1,3 +1,4 @@
+eval "$(docker-machine env default)"
 cd config-service
 ./mvnw clean package docker:build -Dmaven.test.skip=true
 
