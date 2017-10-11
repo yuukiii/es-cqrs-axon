@@ -1,6 +1,6 @@
 logging:
     level:
         root: INFO
-        org.springframework: DEBUG
+        org.springframework: INFO
         org.axonframework: INFO
         app: INFO
