@@ -24,7 +24,7 @@ eureka:
       defaultZone: http://discovery-service:8761/eureka/
 #    fetch-registry: false
   instance:
-    non-secure-port: 80
+    non-secure-port: ${server.port}
     prefer-ip-address: true
     metadata-map:
       intanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
