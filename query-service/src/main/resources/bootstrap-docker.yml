@@ -2,10 +2,14 @@ spring:
   cloud:
     config:
       uri: http://config-service:8888
+      label: master
+      username: ${CONFIG_SECURITY_USERNAME:admin}
+      password: ${CONFIG_SECURITY_PASSWORD:admin1!}
       fail-fast: true
       retry:
         initial-interval: 2000
         max-attempts: 30
+
   rabbitmq:
     host: rabbitmq
     port: 5672

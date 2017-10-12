@@ -16,6 +16,15 @@ server:
 
 security:
   user:
-    name: ${SECURITY_USER_NAME:admin}
-    password: ${SECURITY_PASSWORD:admin1!}
+    name: admin
+    password: test
+  basic:
+    enabled: true
+    path: /**
+
+management:
+  security:
+    enabled: true
+    sessions: stateless
+
 
