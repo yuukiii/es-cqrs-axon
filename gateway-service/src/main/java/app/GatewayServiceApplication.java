@@ -20,7 +20,7 @@ import java.util.List;
 @SpringBootApplication
 public class GatewayServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GatewayServiceApplication.class);
+        SpringApplication.run(GatewayServiceApplication.class, args);
     }
 }
 
