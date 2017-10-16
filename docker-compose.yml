@@ -47,18 +47,6 @@ services:
       - config-service
       - discovery-service
 
-  gateway-service2:
-      image: ryukato/gateway-service
-      container_name: gateway-service2
-      ports:
-        - "8081:8081"
-      environment:
-        - SPRING_PROFILES_ACTIVE=docker
-        - SERVER_PORT=8081
-      depends_on:
-        - config-service
-        - discovery-service
-
   command-service:
     image: ryukato/command-service
     container_name: command-service
