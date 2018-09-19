@@ -19,7 +19,7 @@ There are several service projects that are the followings elements to build one
 * Event Sourcing with [RabbitMQ](https://www.rabbitmq.com/), [MongoDB](https://docs.mongodb.com/)
 
 ## Environment for Development
-Those projects were developed with followings.
+Developed with following:
  
 * Java SDK 8
 * Docker (I'm using v17.03.0-ce)
