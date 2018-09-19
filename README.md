@@ -33,7 +33,7 @@ The whole application has been packaged to be run as a series of Docker containe
 ***Before run whole application, if you have Mongo and RabbitMQ running locally, then shut them down in order to avoid port clashes***
 
 ### Clone the application codes
-You need a new folder to clone the codes and you can get the codes from git repo.
+You need a new folder to clone the code, the you get the code this git repository.
 
 ```
 git clone https://github.com/ryukato/es-cqrs-axon.git
@@ -44,7 +44,7 @@ Then you can build docker container images.
 ```
 sh ./create-docker-image.sh
 ```
-After all builds are completed, you can see docker images
+After all builds are completed, you can see docker images by running the command
 
 ```
 docker images
@@ -78,7 +78,7 @@ docker-compose -f docker-compose.yml up
 
 **You better run eval "$(docker-machine env default)", to copy environment variables of virtual machine into the terminal**
 
-Then you can see the running containers through following command.
+Then you can see the running containers by runing the following command.
 
 ```
 docker ps
